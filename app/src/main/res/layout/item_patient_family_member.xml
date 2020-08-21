@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="familyMemberUiModel"
+            type="ro.code4.casefile.ui.patient.model.FamilyMemberUiModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/MaterialCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_16dp">
+
+            <ImageView
+                android:id="@+id/familyMembersIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_family_members"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/familyMemberName"
+                style="@style/Text.PatientName.FamilyMember"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_16dp"
+                android:layout_marginEnd="@dimen/margin_16dp"
+                android:text="@{familyMemberUiModel.name}"
+                app:layout_constraintBottom_toTopOf="@+id/familyMemberRelation"
+                app:layout_constraintEnd_toStartOf="@id/arrowIcon"
+                app:layout_constraintStart_toEndOf="@id/familyMembersIcon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="Monitorizare sarcina - trimestrul I" />
+
+            <TextView
+                android:id="@+id/familyMemberRelation"
+                style="@style/Text.Label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_16dp"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:text="@{familyMemberUiModel.relation}"
+                android:textStyle="bold"
+                android:visibility="@{familyMemberUiModel.relationVisibility}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/familyMembersIcon"
+                app:layout_constraintTop_toBottomOf="@+id/familyMemberName"
+                tools:text="Copil" />
+
+            <ImageView
+                android:id="@+id/arrowIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_arrow_right"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

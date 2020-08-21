@@ -1,0 +1,70 @@
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            android:paddingBottom="@dimen/margin_16dp"
+            app:layout_constraintBottom_toTopOf="@id/continueButton"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/formSelectionDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/margin_16dp"
+                    android:paddingTop="@dimen/margin_32dp"
+                    android:paddingEnd="@dimen/margin_16dp"
+                    android:paddingBottom="@dimen/margin_16dp"
+                    android:text="@string/form_selection_description"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/selectFormsList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_24dp"
+                    android:clipToPadding="false"
+                    android:overScrollMode="never"
+                    android:paddingStart="@dimen/margin_16dp"
+                    android:paddingTop="@dimen/margin_16dp"
+                    android:paddingEnd="@dimen/margin_16dp"
+                    android:paddingBottom="@dimen/margin_16dp"
+                    android:scrollbars="none"
+                    app:layout_constraintTop_toBottomOf="@id/formSelectionDescription"
+                    tools:itemCount="7"
+                    tools:listitem="@layout/item_form_selectable" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/continueButton"
+            style="@style/BaseButton.Next"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:layout_marginBottom="@dimen/margin_24dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/button_continue"
+            app:iconGravity="textStart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

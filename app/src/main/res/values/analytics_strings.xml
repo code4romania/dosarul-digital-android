@@ -1,0 +1,21 @@
+<resources>
+    <!--BIG TODO rename all these -->
+    <string name="analytics_title_splash" translatable="false">Splash screen</string>
+    <string name="analytics_title_onboarding" translatable="false">Onboarding</string>
+    <string name="analytics_title_login" translatable="false">Login</string>
+    <string name="analytics_title_code_verification" translatable="false">Code verification</string>
+    <string name="analytics_title_change_password" translatable="false">Change password</string>
+    <string name="analytics_title_station_selection" translatable="false">Polling station chooser</string>
+    <string name="analytics_title_add_patient" translatable="false">Add patient</string>
+    <string name="analytics_title_patient_details" translatable="false">Patient details</string>
+    <string name="analytics_title_welcome_details" translatable="false">Welcome</string>
+    <string name="analytics_title_forms" translatable="false">Forms</string>
+    <string name="analytics_title_forms_selection" translatable="false">Forms Selection</string>
+    <string name="analytics_title_questions" translatable="false">Questions</string>
+    <string name="analytics_title_question" translatable="false">Question</string>
+    <string name="analytics_title_notes" translatable="false">Notes</string>
+    <string name="analytics_title_guide" translatable="false">Observers guide</string>
+    <string name="analytics_title_settings" translatable="false">Settings</string>
+
+    <string name="analytics_event_manual_sync" translatable="false">Manual Sync</string>
+</resources>

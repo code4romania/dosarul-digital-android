@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_forms"
+            android:icon="@drawable/ic_my_patients"
+            android:title="@string/menu_beneficiaries" />
+        <item
+            android:id="@+id/nav_change_polling_station"
+            android:checkable="false"
+            android:icon="@drawable/ic_useful_information"
+            android:title="@string/menu_useful_info" />
+        <item
+            android:id="@+id/nav_call"
+            android:icon="@drawable/ic_phone"
+            android:title="@string/menu_contact" />
+
+
+    </group>
+</menu>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="test_email" translatable="false">matei.suica@gmail.com</string>
+    <string name="test_password" translatable="false">Testing@1</string>
+    <string name="new_password" translatable="false">alaBala1234!</string>
+    <string name="new_password_retype" translatable="false">alaBala1234!</string>
+</resources>

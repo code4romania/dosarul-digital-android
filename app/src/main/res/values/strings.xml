@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CASE+FILE</string>
+
+    <!-- General -->
+    <string name="loading_label">Loading…</string>
+    <string name="hint_time">hh:mm</string>
+    <string name="empty" />
+    <string name="error_empty_credentials">Fill in your phone number and the code you received.</string>
+    <string name="error_no_connection">No internet connection. Please connect and try again.</string>
+    <string name="error_server">A server error has occurred</string>
+    <string name="error_unknown">An unknown error has occurred</string>
+    <string name="error_permission">Permission error %1$S</string>
+    <string name="lbl_change">Change</string>
+
+    <!-- Login -->
+    <string name="app_version">v%1$S app developed by</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
+    <string name="login">Login</string>
+    <string name="login_description">Introdu datele tale pentru a accesa aplicația</string>
+    <string name="login_no_internet">You need to be connected to the internet to be able to log in!</string>
+
+    <!--Login Code Verification-->
+    <string name="code_verification_title">Verificare</string>
+    <string name="code_verification_description">Introdu codul primit pe telefon</string>
+    <string name="code_verification_button">Verifică</string>
+    <string name="code_verification_question">Nu ai primit un cod?</string>
+    <string name="code_verification_resend">Re-trimite</string>
+    <string name="resend_code_confirmation">Cod trimis cu success.</string>
+
+    <!--Login Change Password-->
+    <string name="change_password_title">Schimbă parola</string>
+    <string name="change_password_description">Parola nouă trebuie să aibă minim 8 \n caractere, cel puțin o cifră, o \n majusculă și un caracter special</string>
+    <string name="change_password_hint">Noua ta parolă</string>
+    <string name="change_password_retype_hint">Rescrie parola</string>
+    <string name="change_password_button">Schimbă</string>
+
+    <!-- Welcome -->
+    <string name="welcome_title">Bine ai venit!</string>
+    <string name="welcome_description_1" translatable="false">Aplicația <b>Case File</b> te va ajuta să menții un jurnal de sănătate dedicat pentru fiecare dintre beneficiarii tăi.</string>
+    <string name="welcome_description_2" translatable="false">Adaugă în baza de date toate persoanele cu care vii în contact în mod regulat, pe care le ai în grijă, și completează la fiecare vizită câteva informații despre starea lor de sănătate pentru o minimă monitorizare, stocată digitală, care poate fi transferată către un doctor actunci când este cazul.</string>
+    <string name="welcome_description_3" translatable="false">În funcție de condiția beneficiarului, vei avea chestionare dedicate care să te ajute să pui întrebările corecte pentru a analiza starea sa generală.</string>
+    <string name="button_continue">Continuă</string>
+
+    <!--Onboarding-->
+    <string name="onboarding_next">Next</string>
+    <string name="onboarding_back">Back</string>
+    <string name="onboarding_to_app">Go to app</string>
+    <string name="onboarding_title_choose_language">Choose your language</string>
+    <string name="onboarding_title_0">Creează lista ta de pacienți</string>
+    <string name="onboarding_title_1">Poți completa chestionare</string>
+    <string name="onboarding_title_2">Atașează note și fotografii</string>
+    <string name="onboarding_title_3">Trimite fișa beneficiarului pe email</string>
+    <string name="onboarding_description_0"><![CDATA[<html>Adaugă un beneficiar nou și completează datele personale ale acestuia.</html>]]></string>
+    <string name="onboarding_description_1"><![CDATA[<html>Alege din lista alocată fiecărui beneficiar un chestionar potrivit și răspunde la intrebări.</html>]]></string>
+    <string name="onboarding_description_2"><![CDATA[<html>Dacă ai de adăugat informatii in plus la răspunsurile unei intrebări apasa butonul “<b>Adaugă o notă</b>”.</html>]]></string>
+    <string name="onboarding_description_3"><![CDATA[<html>Fișa beneficiarului conține datele despre beneficiar și răspunsurile la chestionare. Apasă “<b>Trimite fișa</b>” și alege adresa de email a medicului curant.</html>]]></string>
+
+    <!-- Fragment titles -->
+    <string name="title_forms_list">Questionnaires</string>
+    <string name="title_note">Notes</string>
+    <string name="title_guide">Guide</string>
+    <string name="title_patients_list" translatable="false">Listă beneficiari</string>
+    <string name="title_patients_details" translatable="false">Detalii beneficiar</string>
+    <string name="title_add_patient" translatable="false">Adăugare beneficiar nou</string>
+    <string name="title_edit_patient" translatable="false">Editează beneficiar</string>
+    <string name="title_forms_selection" translatable="false">Alocă chestionare</string>
+    <string name="title_forms_selection_edit" translatable="false">Editare chestionare alocate</string>
+
+    <!-- Menu -->
+    <string name="menu_beneficiaries">Beneficiarii mei</string>
+    <string name="menu_useful_info">Informații utile</string>
+    <string name="menu_contact">Contacte rapide</string>
+    <string name="menu_about">About</string>
+    <string name="menu_logout">Logout</string>
+    <string name="menu_settings">Settings</string>
+
+    <!-- Forms list -->
+    <string name="form_notes">Add a message</string>
+
+    <string name="sync_info">It appears that some of the questions have not been synchronised. Tap the button below to send the answers again</string>
+    <string name="sync_manual">Synchronize data manually</string>
+
+    <string name="form_sync_no_internet">You need to be connected to the internet to be able to sync the data!</string>
+
+    <string name="error_no_form_data">There is no data for this form.</string>
+    <string name="forms_sync_failed_description">Syncing forms failed</string>
+    <string name="forms_sync_failed_retry">Retry</string>
+
+    <string name="form_selection_description">Selectează din listă toate chestionarele \n potrivite pentru acest beneficiar</string>
+
+    <!-- Question details -->
+    <string name="question_next">Next</string>
+    <string name="question_previous">Previous</string>
+    <string name="question_finish">Send</string>
+    <string name="sync_locally_saved">saved locally</string>
+    <string name="add_note_to_question">Adaugă o notă</string>
+    <string name="comments">Comentariile tale</string>
+    <string name="comments_hint">Scrie o notă aici…</string>
+    <string name="view_add_note_to_question">Vezi/adaugă o notă</string>
+    <string name="select_date_hint" translatable="false">selectează data</string>
+    <string name="question_text_hint" translatable="false">Scrie un răspuns aici…</string>
+    <string name="question_number_hint" translatable="false">Scrie un număr aici…</string>
+
+    <!-- Notes -->
+    <string name="add_note">Add a note</string>
+    <string name="note_description_hint">Type here</string>
+    <string name="note_media">Add photo or video</string>
+    <string name="invalid_note">Add a description or choose a file</string>
+    <string name="error_permission_external_storage">We need your permission to select a resource</string>
+    <string name="note_gallery">Load from gallery</string>
+    <string name="note_photo">Take photo</string>
+    <string name="note_video">Record video</string>
+    <string name="select_photo">Select Photo</string>
+    <string name="file_manager_missing">Please install a file manager.</string>
+    <string name="note_submit">Submit</string>
+
+    <string name="notes_history">Notes history</string>
+
+    <!-- Images -->
+    <string name="content_icon_building">Building icon</string>
+
+    <!-- Format helpers -->
+    <string name="form_suffix" translatable="false">&#160;(%1$s)</string>
+    <string name="no_answered_questions" translatable="false">%1$d/%2$d</string>
+
+    <!--    Permissions-->
+    <string name="permission_permanently_denied_title">Permission needed</string>
+    <string name="permission_permanently_denied_msg">To use this function, you have to change the app permissions. Please open the Settings menu and grant access to the requested permissions.</string>
+    <string name="permission_permanently_denied_settings_button">Settings</string>
+
+    <string name="permission_denied_title">Permission needed</string>
+    <string name="permission_denied_msg">To use this function we need your permission to access the storage.</string>
+    <string name="permission_denied_ok_button">OK</string>
+    <string name="permission_denied_cancel_button">Cancel</string>
+
+    <!-- Notifications -->
+    <string name="default_notification_channel_id" translatable="false">Firebase</string>
+    <string name="push_notification_ok">OK</string>
+
+    <!-- Errors -->
+    <string name="error_generic">Something went wrong!</string>
+    <string name="invalid_email">The entered email is invalid!</string>
+
+    <!--About-->
+    <string name="about_mission">About this app</string>
+    <string name="about_content"><![CDATA[<html>Vote Monitor is an application created by Code for Romania.<br/><br/>This is the first app, developed in Romania, intended to be used as part of the vote monitoring process. It\'s also one of the few such apps in the world. The app has been used, by observers, ever since the prezidential elections in 2016. In Poland, it was used in 2018, in the first independently-monitored elections. <br/><br/>The app is open source. <a href="https://github.com/code4romania/mon-vot-android-kotlin">Check it out on GitHub</a>. <br/><br/>Code for Romania is an NGO that develops IT applications, pro-bono, with the overall goal of solving the pain points identified in society. If you want to support our activity, head over to <a href="https://code4.ro/en/">our website</a> and join the community, as a volunteer, or donate.</html>]]></string>
+    <string name="about_change_language">Change language</string>
+    <string name="about_contact">Contact us</string>
+    <string name="about_privacy_policy">Privacy policy</string>
+    <string name="about_send_mail_via">Send email via</string>
+    <string name="about_app_version">v%1$S build %2$d app developed by</string>
+
+    <!--Patient card-->
+    <string name="patient_age" translatable="false">Vârstă</string>
+    <string name="patient_marital_status" translatable="false">Stare civilă</string>
+    <string name="patient_city" translatable="false">Localitate</string>
+    <string name="patient_county" translatable="false">Județ</string>
+    <string name="button_fill_form" translatable="false">Completează chestionar</string>
+
+    <!--Beneficiary details-->
+    <string name="no_family_members_message" translatable="false">Nu există membri</string>
+    <string name="no_family_members_message_details" translatable="false">Încă nu ai adăugat membri ai familiei.\nApasă butonul \"Adaugă\" de mai sus</string>
+    <string name="no_history_message" translatable="false">Nu există istoric</string>
+    <string name="no_history_message_details" translatable="false">Încă nu ai completat chestionare pentru acest beneficiar.Poți începe prin a apăsa butonul \"Chestionar\" de mai sus</string>
+    <string name="no_notes_message" translatable="false">Nu există note</string>
+    <string name="no_notes_message_details" translatable="false">Încă nu ai note despre acest beneficiar.\nApasă butonul \"Adaugă\" de mai sus</string>
+    <string name="button_form" translatable="false">Chestionar</string>
+    <string name="button_send_record" translatable="false">Trimite fișă</string>
+    <string name="button_edit" translatable="false">Editează</string>
+    <string name="button_add" translatable="false">Adaugă</string>
+    <string name="family_members_section_label" translatable="false">Membri ai familiei</string>
+    <string name="history_section_label" translatable="false">Istoric evaluare</string>
+    <string name="notes_section_label" translatable="false">Istoric note generale</string>
+
+    <!-- Patient list -->
+    <string name="add_new_patient_instruction">Încă nu ai adăugat pacienți în listă. Începe prin a apăsa butonul \"Adaugă beneficiar nou\"</string>
+    <string name="empty_patient_list">Lista ta e goală</string>
+    <string name="add_patient_button_text">Adaugă beneficiar nou</string>
+
+    <!-- Fill Date -->
+    <string name="fill_date">Data completării</string>
+    <string name="fill_date_title">Data completării</string>
+
+    <!-- Add patient -->
+    <string name="general_data">Date generale</string>
+    <string name="name_and_surname">Nume și prenume</string>
+    <string name="name_and_surname_hint">ex: Dana Manole</string>
+    <string name="date_of_birth">Data nașterii</string>
+    <string name="date_of_birth_hint">Selectează data</string>
+    <string name="marital_status">Stare civilă</string>
+    <string name="marital_status_hint">ex: căsătorit(ă)</string>
+    <string name="county">Județ</string>
+    <string name="county_hint">ex: Arad</string>
+    <string name="city">Localitate</string>
+    <string name="city_hint">ex: Aluniș</string>
+    <string name="gender">Gen</string>
+    <string name="gender_hint">ex: feminin</string>
+    <string name="family_relation">Relația familială</string>
+    <string name="family_relation_hint">ex: copil</string>
+
+    <!--Marital status-->
+    <string name="not_married">necăsătorit(ă)</string>
+
+    <string name="married">căsătorit(ă)</string>
+    <string name="divorced">divorțat(ă)</string>
+    <string name="widowed">văduv(ă)</string>
+    <string name="complicated">complicat</string>
+
+    <!--County-->
+    <string name="county_alba">Alba</string>
+    <string name="county_cluj">Cluj</string>
+    <string name="county_iasi">Iași</string>
+
+    <!--City-->
+    <string name="city_alba_iulia">Alba Iulia</string>
+    <string name="city_cluj_napoca">Cluj-Napoca</string>
+    <string name="city_iași">Iași</string>
+
+    <!--Gender-->
+    <string name="female">feminin</string>
+    <string name="male">masculin</string>
+
+    <!--Family relation-->
+    <string name="child">copil</string>
+    <string name="mother">mamă</string>
+    <string name="sister">soră</string>
+
+    <string name="undefined">undefined</string>
+
+    <!--Change Password-->
+    <string name="change_password_not_equal">Parolele introduse sunt diferite</string><!--TODO?!-->
+    <string name="change_password_alert_title">Atenție</string>
+    <string name="change_password_alert_message">Fii sigur că ai introdus minim 8 caractere, cel puțin o cifră, o majusculă și un caracter special</string>
+    <string name="change_password_alert_button">Am înțeles</string>
+
+    <!--Send report dialog-->
+    <string name="send_report_dialog_title">Unde se trimite?</string>
+    <string name="send_report_dialog_message">Notează adresa de email unde vrei să trimiți fișa beneficiarului</string>
+    <string name="send_report_dialog_hint">email@yahoo.com</string>
+    <string name="send_report_dialog_cancel">Anulează</string>
+    <string name="send_report_dialog_send">Trimite</string>
+    <string name="send_report_dialog_error">Adresa introdusă este invalidă</string>
+</resources>

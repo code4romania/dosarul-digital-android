@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="patientUiModel"
+            type="ro.code4.casefile.ui.patient.model.PatientUiModel" />
+
+        <variable
+            name="patientDetailsListeners"
+            type="ro.code4.casefile.ui.patient.PatientDetailsListeners" />
+
+        <variable
+            name="patientFamilyMembersListVisibility"
+            type="Integer" />
+
+        <variable
+            name="noPatientFamilyMembersLayoutVisibility"
+            type="Integer" />
+
+        <variable
+            name="patientFormHistoryListVisibility"
+            type="Integer" />
+
+        <variable
+            name="noPatientFormHistoryLayoutVisibility"
+            type="Integer" />
+
+        <variable
+            name="patientNotesListVisibility"
+            type="Integer" />
+
+        <variable
+            name="noPatientNotesLayoutVisibility"
+            type="Integer" />
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:paddingStart="@dimen/margin_16dp"
+            android:paddingTop="@dimen/margin_16dp"
+            android:paddingEnd="@dimen/margin_16dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/patientCard"
+                style="@style/MaterialCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/margin_16dp">
+
+                    <ImageView
+                        android:id="@+id/beneficiaryIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_16dp"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_patient"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/patientName"
+                        style="@style/Text.PatientName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_16dp"
+                        android:maxLines="1"
+                        android:text="@{patientUiModel.name}"
+                        android:textStyle="normal"
+                        app:layout_constraintBottom_toBottomOf="@id/beneficiaryIcon"
+                        app:layout_constraintEnd_toStartOf="@id/editPatientButton"
+                        app:layout_constraintStart_toEndOf="@id/beneficiaryIcon"
+                        app:layout_constraintTop_toTopOf="@id/beneficiaryIcon"
+                        tools:text="Lavinia Mircea" />
+
+                    <Button
+                        android:id="@+id/editPatientButton"
+                        style="@style/Button.Text.EditPatient"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/margin_8dp"
+                        android:adjustViewBounds="true"
+                        android:onClick="@{ () -> patientDetailsListeners.editPatient.invoke() }"
+                        android:text="@string/button_edit"
+                        app:layout_constraintBottom_toBottomOf="@id/beneficiaryIcon"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/beneficiaryIcon" />
+
+                    <View
+                        android:id="@+id/topDivider"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/divider"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:background="@color/grey"
+                        app:layout_constraintTop_toBottomOf="@id/beneficiaryIcon" />
+
+                    <TextView
+                        android:id="@+id/patientAgeLabel"
+                        style="@style/Text.Label.PatientInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:text="@string/patient_age"
+                        app:layout_constraintStart_toStartOf="@id/beneficiaryIcon"
+                        app:layout_constraintTop_toBottomOf="@id/topDivider" />
+
+                    <TextView
+                        android:id="@+id/patientAge"
+                        style="@style/Text.PatientInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{String.valueOf(patientUiModel.age)}"
+                        app:layout_constraintStart_toStartOf="@id/beneficiaryIcon"
+                        app:layout_constraintTop_toBottomOf="@id/patientAgeLabel"
+                        tools:text="28" />
+
+                    <TextView
+                        android:id="@+id/patientCityLabel"
+                        style="@style/Text.Label.PatientInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:text="@string/patient_city"
+                        app:layout_constraintStart_toStartOf="@id/beneficiaryIcon"
+                        app:layout_constraintTop_toBottomOf="@id/patientAge" />
+
+                    <TextView
+                        android:id="@+id/patientCity"
+                        style="@style/Text.PatientInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{patientUiModel.city}"
+                        app:layout_constraintStart_toStartOf="@id/beneficiaryIcon"
+                        app:layout_constraintTop_toBottomOf="@id/patientCityLabel"
+                        tools:text="Florești" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/patientInfoGuideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.5" />
+
+                    <TextView
+                        android:id="@+id/patientMaritalStatusLabel"
+                        style="@style/Text.Label.PatientInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:text="@string/patient_marital_status"
+                        app:layout_constraintStart_toStartOf="@id/patientInfoGuideline"
+                        app:layout_constraintTop_toBottomOf="@id/topDivider" />
+
+                    <TextView
+                        android:id="@+id/patientMaritalStatus"
+                        style="@style/Text.PatientInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{patientUiModel.maritalStatus.stringRes}"
+                        android:textStyle="normal"
+                        app:layout_constraintStart_toStartOf="@id/patientInfoGuideline"
+                        app:layout_constraintTop_toBottomOf="@id/patientMaritalStatusLabel"
+                        tools:text="căsătorită" />
+
+                    <TextView
+                        android:id="@+id/patientCountyLabel"
+                        style="@style/Text.Label.PatientInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:text="@string/patient_county"
+                        app:layout_constraintStart_toStartOf="@id/patientInfoGuideline"
+                        app:layout_constraintTop_toBottomOf="@id/patientMaritalStatus" />
+
+                    <TextView
+                        android:id="@+id/patientCounty"
+                        style="@style/Text.PatientInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{patientUiModel.county}"
+                        app:layout_constraintStart_toStartOf="@id/patientInfoGuideline"
+                        app:layout_constraintTop_toBottomOf="@id/patientCountyLabel"
+                        tools:text="Cluj" />
+
+                    <View
+                        android:id="@+id/bottomDivider"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/divider"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:background="@color/grey"
+                        app:layout_constraintTop_toBottomOf="@id/patientCity" />
+
+                    <Button
+                        android:id="@+id/formButton"
+                        style="@style/BaseButton.Previous"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_16dp"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:insetTop="@dimen/size_0dp"
+                        android:insetBottom="@dimen/size_0dp"
+                        android:onClick="@{ () -> patientDetailsListeners.patientForms.invoke() }"
+                        android:text="@string/button_form"
+                        app:layout_constraintEnd_toStartOf="@+id/sendRecordButton"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/bottomDivider" />
+
+                    <Button
+                        android:id="@+id/sendRecordButton"
+                        style="@style/BaseButton.Previous"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_16dp"
+                        android:insetTop="@dimen/size_0dp"
+                        android:insetBottom="@dimen/size_0dp"
+                        android:onClick="@{ () -> patientDetailsListeners.sendRecord.invoke() }"
+                        android:text="@string/button_send_record"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/formButton"
+                        app:layout_constraintTop_toBottomOf="@id/bottomDivider" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/familyMembersSectionLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_32dp"
+                android:text="@string/family_members_section_label"
+                android:textAllCaps="true"
+                android:textSize="@dimen/text_size_12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/patientCard" />
+
+            <TextView
+                android:id="@+id/addFamilyMemberButton"
+                style="@style/Text.Simple.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{ () -> patientDetailsListeners.addFamilyMember.invoke() }"
+                android:text="@string/button_add"
+                app:layout_constraintBottom_toBottomOf="@id/familyMembersSectionLabel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/familyMembersSectionLabel" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/familyMembersContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                app:layout_constraintTop_toBottomOf="@id/familyMembersSectionLabel">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/familyMembersList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:overScrollMode="never"
+                    android:visibility="@{patientFamilyMembersListVisibility}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_patient_family_member" />
+
+                <TextView
+                    android:id="@+id/noFamilyMembersMessage"
+                    style="@style/Text.EmptyList.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_32dp"
+                    android:text="@string/no_family_members_message"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/noFamilyMembersMessageDetails"
+                    style="@style/Text.EmptyList.Description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_48dp"
+                    android:layout_marginTop="@dimen/margin_12dp"
+                    android:layout_marginEnd="@dimen/margin_48dp"
+                    android:text="@string/no_family_members_message_details"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/noFamilyMembersMessage" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/noFamilyMembersGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{noPatientFamilyMembersLayoutVisibility}"
+                    app:constraint_referenced_ids="noFamilyMembersMessage,noFamilyMembersMessageDetails" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/formHistorySectionLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_32dp"
+                android:text="@string/history_section_label"
+                android:textAllCaps="true"
+                android:textSize="@dimen/text_size_12sp"
+                app:layout_constraintTop_toBottomOf="@id/familyMembersContent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/formHistoryContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                app:layout_constraintTop_toBottomOf="@id/formHistorySectionLabel">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/formHistoryList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:overScrollMode="never"
+                    android:visibility="@{patientFormHistoryListVisibility}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_patient_form_history" />
+
+                <ImageView
+                    android:id="@+id/noFormHistoryIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@null"
+                    android:layout_marginTop="@dimen/margin_24dp"
+                    android:src="@drawable/ic_patient_no_history"
+                    app:layout_constraintBottom_toTopOf="@id/noFormHistoryMessage"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/noFormHistoryMessage"
+                    style="@style/Text.EmptyList.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_12dp"
+                    android:text="@string/no_history_message"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/noFormHistoryIcon" />
+
+                <TextView
+                    android:id="@+id/noFormHistoryMessageDetails"
+                    style="@style/Text.EmptyList.Description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_48dp"
+                    android:layout_marginTop="@dimen/margin_24dp"
+                    android:layout_marginEnd="@dimen/margin_48dp"
+                    android:layout_marginBottom="@dimen/margin_8dp"
+                    android:text="@string/no_history_message_details"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/noFormHistoryMessage" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/noFormHistoryGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{noPatientFormHistoryLayoutVisibility}"
+                    app:constraint_referenced_ids="noFormHistoryIcon,noFormHistoryMessage,noFormHistoryMessageDetails" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/notesSectionLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_32dp"
+                android:text="@string/notes_section_label"
+                android:textAllCaps="true"
+                android:textSize="@dimen/text_size_12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/formHistoryContent" />
+
+            <TextView
+                android:id="@+id/addNoteButton"
+                style="@style/Text.Simple.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{ () -> patientDetailsListeners.addNote.invoke() }"
+                android:text="@string/button_add"
+                app:layout_constraintBottom_toBottomOf="@id/notesSectionLabel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/notesSectionLabel" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/notesContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                app:layout_constraintTop_toBottomOf="@id/notesSectionLabel">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/notesList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:overScrollMode="never"
+                    android:paddingBottom="@dimen/margin_16dp"
+                    android:visibility="@{patientNotesListVisibility}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_patient_note" />
+
+                <TextView
+                    android:id="@+id/noNotesMessage"
+                    style="@style/Text.EmptyList.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_32dp"
+                    android:text="@string/no_notes_message"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/noNotesMessageDetails"
+                    style="@style/Text.EmptyList.Description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_48dp"
+                    android:layout_marginTop="@dimen/margin_12dp"
+                    android:layout_marginEnd="@dimen/margin_48dp"
+                    android:layout_marginBottom="@dimen/margin_16dp"
+                    android:text="@string/no_notes_message_details"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/noNotesMessage" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/noNotesGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{noPatientNotesLayoutVisibility}"
+                    app:constraint_referenced_ids="noNotesMessage,noNotesMessageDetails" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

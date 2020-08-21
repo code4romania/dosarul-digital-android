@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="questionUiModel"
+            type="ro.code4.casefile.ui.forms.model.QuestionUiModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        style="@style/MaterialCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/noteIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:layout_marginEnd="@dimen/margin_16dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                app:imageResource="@{questionUiModel.noteIconRes}"
+                app:layout_constraintEnd_toStartOf="@id/syncIcon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/syncIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:layout_marginEnd="@dimen/margin_16dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                app:imageResource="@{questionUiModel.syncIconRes}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/questionCode"
+                style="@style/Text.Label.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_16dp"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:text="@{questionUiModel.questionCode}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="B2" />
+
+            <TextView
+                android:id="@+id/question"
+                style="@style/Text.Title.Form"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_16dp"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:layout_marginEnd="@dimen/margin_16dp"
+                android:layout_marginBottom="@dimen/margin_16dp"
+                android:text="@{questionUiModel.question}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/questionCode"
+                tools:text="Sectia de votare este accesibila persoanelor cu dizabilitati" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="patientUiModel"
+            type="ro.code4.casefile.ui.patient.model.PatientUiModel" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/patientCard"
+        style="@style/MaterialCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_16dp"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:layout_marginEnd="@dimen/margin_16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/margin_16dp">
+
+            <ImageView
+                android:id="@+id/beneficiaryIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_16dp"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_patient"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/patientName"
+                style="@style/Text.PatientName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_16dp"
+                android:maxLines="1"
+                android:text="@{patientUiModel.name}"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="@id/beneficiaryIcon"
+                app:layout_constraintEnd_toStartOf="@id/arrowIcon"
+                app:layout_constraintStart_toEndOf="@id/beneficiaryIcon"
+                app:layout_constraintTop_toTopOf="@id/beneficiaryIcon"
+                tools:text="Lavinia Mircea" />
+
+            <ImageView
+                android:id="@+id/arrowIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_10dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_arrow_right"
+                app:layout_constraintBottom_toBottomOf="@id/beneficiaryIcon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/beneficiaryIcon" />
+
+            <View
+                android:id="@+id/patientDetailsClickInterceptor"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@id/topDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/topDivider"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:background="@color/grey"
+                app:layout_constraintTop_toBottomOf="@id/beneficiaryIcon" />
+
+            <TextView
+                android:id="@+id/patientAgeLabel"
+                style="@style/Text.Label.PatientInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:text="@string/patient_age"
+                app:layout_constraintStart_toStartOf="@id/beneficiaryIcon"
+                app:layout_constraintTop_toBottomOf="@id/topDivider" />
+
+            <TextView
+                android:id="@+id/patientAge"
+                style="@style/Text.PatientInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(patientUiModel.age)}"
+                app:layout_constraintStart_toStartOf="@id/beneficiaryIcon"
+                app:layout_constraintTop_toBottomOf="@id/patientAgeLabel"
+                tools:text="28" />
+
+            <TextView
+                android:id="@+id/patientCityLabel"
+                style="@style/Text.Label.PatientInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:text="@string/patient_city"
+                app:layout_constraintStart_toStartOf="@id/beneficiaryIcon"
+                app:layout_constraintTop_toBottomOf="@id/patientAge" />
+
+            <TextView
+                android:id="@+id/patientCity"
+                style="@style/Text.PatientInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{patientUiModel.city}"
+                app:layout_constraintStart_toStartOf="@id/beneficiaryIcon"
+                app:layout_constraintTop_toBottomOf="@id/patientCityLabel"
+                tools:text="Florești" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/patientInfoGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <TextView
+                android:id="@+id/patientMaritalStatusLabel"
+                style="@style/Text.Label.PatientInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:text="@string/patient_marital_status"
+                app:layout_constraintStart_toStartOf="@id/patientInfoGuideline"
+                app:layout_constraintTop_toBottomOf="@id/topDivider" />
+
+            <TextView
+                android:id="@+id/patientMaritalStatus"
+                style="@style/Text.PatientInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{patientUiModel.maritalStatus.stringRes}"
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="@id/patientInfoGuideline"
+                app:layout_constraintTop_toBottomOf="@id/patientMaritalStatusLabel"
+                tools:text="căsătorită" />
+
+            <TextView
+                android:id="@+id/patientCountyLabel"
+                style="@style/Text.Label.PatientInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:text="@string/patient_county"
+                app:layout_constraintStart_toStartOf="@id/patientInfoGuideline"
+                app:layout_constraintTop_toBottomOf="@id/patientMaritalStatus" />
+
+            <TextView
+                android:id="@+id/patientCounty"
+                style="@style/Text.PatientInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{patientUiModel.county}"
+                app:layout_constraintStart_toStartOf="@id/patientInfoGuideline"
+                app:layout_constraintTop_toBottomOf="@id/patientCountyLabel"
+                tools:text="Cluj" />
+
+            <View
+                android:id="@+id/bottomDivider"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:background="@color/grey"
+                app:layout_constraintTop_toBottomOf="@id/patientCity" />
+
+            <Button
+                android:id="@+id/fillFormButton"
+                style="@style/BaseButton.Previous"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_16dp"
+                android:insetTop="@dimen/size_0dp"
+                android:insetBottom="@dimen/size_0dp"
+                android:text="@string/button_fill_form"
+                app:layout_constraintTop_toBottomOf="@id/bottomDivider" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

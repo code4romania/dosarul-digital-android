@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="patientFormHistoryUiModel"
+            type="ro.code4.casefile.ui.patient.model.FormHistoryUiModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        style="@style/MaterialCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/syncIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_16dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                app:imageResource="@{patientFormHistoryUiModel.syncIconRes}"
+                app:layout_constraintBottom_toBottomOf="@id/formDate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/formDate"
+                tools:src="@drawable/ic_check_enabled" />
+
+            <TextView
+                android:id="@+id/formDate"
+                style="@style/Text.Label.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_16dp"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:text="@{patientFormHistoryUiModel.formDate}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="16.09.2019" />
+
+            <TextView
+                android:id="@+id/formTitle"
+                style="@style/Text.Title.Form"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_16dp"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:layout_marginEnd="@dimen/margin_16dp"
+                android:layout_marginBottom="@dimen/margin_16dp"
+                android:text="@{patientFormHistoryUiModel.formTitle}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/formDate"
+                tools:text="Monitorizare sarcina - trimestrul I" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,0 +1,701 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "6f918d53ab471981cc3a871f381f7950",
+    "entities": [
+      {
+        "tableName": "patients",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`beneficiaryId` INTEGER NOT NULL, `name` TEXT, `age` INTEGER NOT NULL, `civilStatus` INTEGER, `county` TEXT, `city` TEXT, PRIMARY KEY(`beneficiaryId`))",
+        "fields": [
+          {
+            "fieldPath": "beneficiaryId",
+            "columnName": "beneficiaryId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "age",
+            "columnName": "age",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "civilStatus",
+            "columnName": "civilStatus",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "county",
+            "columnName": "county",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "city",
+            "columnName": "city",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "beneficiaryId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "form_details",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `code` TEXT NOT NULL, `description` TEXT NOT NULL, `formVersion` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "code",
+            "columnName": "code",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "formVersion",
+            "columnName": "formVersion",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "section",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`title` TEXT, `sectionId` INTEGER NOT NULL, `code` TEXT, `description` TEXT, `formId` INTEGER NOT NULL, PRIMARY KEY(`sectionId`), FOREIGN KEY(`formId`) REFERENCES `form_details`(`id`) ON UPDATE CASCADE ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sectionId",
+            "columnName": "sectionId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "code",
+            "columnName": "code",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "formId",
+            "columnName": "formId",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "sectionId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": [
+          {
+            "table": "form_details",
+            "onDelete": "CASCADE",
+            "onUpdate": "CASCADE",
+            "columns": [
+              "formId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "question",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`questionId` INTEGER NOT NULL, `formCode` TEXT, `code` TEXT, `sectionId` INTEGER NOT NULL, `questionType` INTEGER NOT NULL, `text` TEXT NOT NULL, `hint` TEXT, PRIMARY KEY(`questionId`), FOREIGN KEY(`sectionId`) REFERENCES `section`(`sectionId`) ON UPDATE CASCADE ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "questionId",
+            "columnName": "questionId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "formCode",
+            "columnName": "formCode",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "code",
+            "columnName": "code",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sectionId",
+            "columnName": "sectionId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "questionType",
+            "columnName": "questionType",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "text",
+            "columnName": "text",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hint",
+            "columnName": "hint",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "questionId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": [
+          {
+            "table": "section",
+            "onDelete": "CASCADE",
+            "onUpdate": "CASCADE",
+            "columns": [
+              "sectionId"
+            ],
+            "referencedColumns": [
+              "sectionId"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "answer",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idOption` INTEGER NOT NULL, `text` TEXT NOT NULL, `isFreeText` INTEGER NOT NULL, `questionId` INTEGER NOT NULL, PRIMARY KEY(`idOption`), FOREIGN KEY(`questionId`) REFERENCES `question`(`questionId`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "idOption",
+            "columnName": "idOption",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "text",
+            "columnName": "text",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isFreeText",
+            "columnName": "isFreeText",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "questionId",
+            "columnName": "questionId",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idOption"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": [
+          {
+            "table": "question",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "questionId"
+            ],
+            "referencedColumns": [
+              "questionId"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "answered_question",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `formId` INTEGER NOT NULL, `questionId` INTEGER NOT NULL, `beneficiaryId` INTEGER NOT NULL, `savedLocally` INTEGER NOT NULL, `synced` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "formId",
+            "columnName": "formId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "questionId",
+            "columnName": "questionId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "beneficiaryId",
+            "columnName": "beneficiaryId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "savedLocally",
+            "columnName": "savedLocally",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "synced",
+            "columnName": "synced",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_answered_question_questionId_beneficiaryId_formId",
+            "unique": true,
+            "columnNames": [
+              "questionId",
+              "beneficiaryId",
+              "formId"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_answered_question_questionId_beneficiaryId_formId` ON `${TABLE_NAME}` (`questionId`, `beneficiaryId`, `formId`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "selected_answer",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `optionId` INTEGER NOT NULL, `value` TEXT, `answeredQuestionId` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "optionId",
+            "columnName": "optionId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "value",
+            "columnName": "value",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "answeredQuestionId",
+            "columnName": "answeredQuestionId",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_selected_answer_answeredQuestionId_optionId",
+            "unique": true,
+            "columnNames": [
+              "answeredQuestionId",
+              "optionId"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_selected_answer_answeredQuestionId_optionId` ON `${TABLE_NAME}` (`answeredQuestionId`, `optionId`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "note",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `attachmentPath` TEXT, `text` TEXT, `questionId` INTEGER, `lastModified` INTEGER NOT NULL, `beneficiaryId` INTEGER, `formId` INTEGER, `synced` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "attachmentPath",
+            "columnName": "attachmentPath",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "text",
+            "columnName": "text",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "questionId",
+            "columnName": "questionId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lastModified",
+            "columnName": "lastModified",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "beneficiaryId",
+            "columnName": "beneficiaryId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "formId",
+            "columnName": "formId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "synced",
+            "columnName": "synced",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_note_beneficiaryId_questionId",
+            "unique": false,
+            "columnNames": [
+              "beneficiaryId",
+              "questionId"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_note_beneficiaryId_questionId` ON `${TABLE_NAME}` (`beneficiaryId`, `questionId`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "counties",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`countyId` INTEGER NOT NULL, `code` TEXT NOT NULL, `name` TEXT NOT NULL, `order` INTEGER NOT NULL, PRIMARY KEY(`countyId`))",
+        "fields": [
+          {
+            "fieldPath": "countyId",
+            "columnName": "countyId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "code",
+            "columnName": "code",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "order",
+            "columnName": "order",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "countyId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "cities",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`cityId` INTEGER NOT NULL, `name` TEXT NOT NULL, `countyId` INTEGER NOT NULL, PRIMARY KEY(`cityId`), FOREIGN KEY(`countyId`) REFERENCES `counties`(`countyId`) ON UPDATE CASCADE ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "cityId",
+            "columnName": "cityId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "countyId",
+            "columnName": "countyId",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "cityId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": [
+          {
+            "table": "counties",
+            "onDelete": "CASCADE",
+            "onUpdate": "CASCADE",
+            "columns": [
+              "countyId"
+            ],
+            "referencedColumns": [
+              "countyId"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "patient_details",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`beneficiaryId` INTEGER NOT NULL, `userId` INTEGER, `name` TEXT, `birthDate` INTEGER, `civilStatus` INTEGER, `countyId` INTEGER, `cityId` INTEGER, `gender` INTEGER, PRIMARY KEY(`beneficiaryId`))",
+        "fields": [
+          {
+            "fieldPath": "beneficiaryId",
+            "columnName": "beneficiaryId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "birthDate",
+            "columnName": "birthDate",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "civilStatus",
+            "columnName": "civilStatus",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "countyId",
+            "columnName": "countyId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "cityId",
+            "columnName": "cityId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "gender",
+            "columnName": "gender",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "beneficiaryId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "patient_forms",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `formId` INTEGER NOT NULL, `code` TEXT NOT NULL, `beneficiaryId` INTEGER NOT NULL, `completionDate` INTEGER, `description` TEXT NOT NULL, `totalQuestionsNo` INTEGER NOT NULL, `questionsAnsweredNo` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "formId",
+            "columnName": "formId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "code",
+            "columnName": "code",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "beneficiaryId",
+            "columnName": "beneficiaryId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "completionDate",
+            "columnName": "completionDate",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalQuestionsNo",
+            "columnName": "totalQuestionsNo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "questionsAnsweredNo",
+            "columnName": "questionsAnsweredNo",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "family_members",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `beneficiaryId` INTEGER NOT NULL, `name` TEXT NOT NULL, `isFamilyOfBeneficiaryId` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "beneficiaryId",
+            "columnName": "beneficiaryId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isFamilyOfBeneficiaryId",
+            "columnName": "isFamilyOfBeneficiaryId",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '6f918d53ab471981cc3a871f381f7950')"
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="beneficiaryBarUiModel"
+            type="ro.code4.casefile.ui.patientbar.BeneficiaryBarUiModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cardColor"
+        android:elevation="@dimen/xsmall_elevation"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/beneficiaryIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/small_icon_size"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/content_icon_building"
+            android:src="@drawable/ic_pacient"
+            app:layout_constraintBottom_toBottomOf="@id/beneficiaryBarText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/beneficiaryBarText" />
+
+        <TextView
+            android:id="@+id/beneficiaryBarText"
+            style="@style/Text.PollingStation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_8dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:layout_marginBottom="@dimen/margin_16dp"
+            android:text="@{beneficiaryBarUiModel.name}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/beneficiaryBarButton"
+            app:layout_constraintStart_toEndOf="@id/beneficiaryIcon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="CJ 1234" />
+
+        <Button
+            android:id="@+id/beneficiaryBarButton"
+            style="@style/Button.Text.PrimaryColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> beneficiaryBarUiModel.listener.invoke()}"
+            android:text="@string/lbl_change"
+            android:theme="@style/Button.Text.PrimaryColor"
+            android:visibility="@{ beneficiaryBarUiModel.buttonVisibility ? View.VISIBLE : View.INVISIBLE }"
+            app:layout_constraintBottom_toBottomOf="@id/beneficiaryBarText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/beneficiaryBarText" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,478 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowBackground">@color/backgroundLight</item>
+        <item name="primaryTextColor">@color/textPrimary</item>
+        <item name="buttonNextColor">@color/buttonNextColor</item>
+        <item name="buttonPreviousColor">@color/buttonPreviousColor</item>
+        <item name="buttonNextColorTapped">@color/buttonNextColorTapped</item>
+        <item name="buttonPreviousColorTapped">@color/buttonPreviousColorTapped</item>
+        <item name="colorButtonNormal">@color/purple</item>
+        <item name="android:colorButtonNormal">@color/purple</item>
+        <item name="inputBackgroundColor">@color/inputFill</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="ToolbarTheme">
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+        <item name="actionMenuTextColor">@android:color/white</item>
+    </style>
+
+    <style name="AppTheme.Fullscreen" parent="AppTheme.NoActionBar">
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">false</item>
+    </style>
+
+    <style name="AppTheme.Onboarding" parent="AppTheme.NoActionBar">
+        <item name="colorAccent">@color/darkPurple</item>
+        <item name="buttonNextColor">@color/darkPurple</item>
+        <item name="android:windowBackground">@color/bgColorOnboarding</item>
+        <item name="inputBackgroundColor">@color/white</item>
+    </style>
+
+    <style name="AlertDialog" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <item name="colorAccent">@color/purple</item>
+    </style>
+
+    <style name="Button" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/text_color_selector</item>
+        <item name="android:maxLines">1</item>
+        <item name="autoSizeTextType">uniform</item>
+        <item name="cornerRadius">4dp</item>
+        <item name="android:padding">@dimen/margin_16dp</item>
+        <item name="backgroundTint">@color/button_selector</item>
+    </style>
+
+    <style name="BaseButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="autoSizeMaxTextSize">14sp</item>
+        <item name="iconPadding">@dimen/margin_16dp</item>
+        <item name="rippleColor">@null</item>
+        <item name="autoSizeTextType">uniform</item>
+    </style>
+
+    <style name="BaseButton.Next" parent="BaseButton">
+        <item name="android:textColor">@color/nextbtn_text_color_selector</item>
+        <item name="backgroundTint">@color/button_selector</item>
+    </style>
+
+    <style name="BaseButton.Previous" parent="BaseButton">
+        <item name="android:textColor">@color/prevbtn_text_color_selector</item>
+        <item name="backgroundTint">@color/button_previous_selector</item>
+    </style>
+
+    <style name="BaseButton.NoBackground" parent="BaseButton">
+        <item name="android:textColor">@color/text_color_selector</item>
+        <item name="iconTint">@color/text_color_selector</item>
+        <item name="backgroundTint">@color/text_button_selector</item>
+    </style>
+
+    <style name="Button.Text" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingTop">@dimen/margin_4dp</item>
+        <item name="android:paddingBottom">@dimen/margin_4dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/text_color_selector</item>
+        <item name="iconTint">@color/text_color_selector</item>
+        <item name="backgroundTint">@color/text_button_selector</item>
+        <item name="autoSizeMaxTextSize">14sp</item>
+        <item name="iconPadding">@dimen/margin_16dp</item>
+        <item name="rippleColor">@null</item>
+        <item name="autoSizeTextType">uniform</item>
+    </style>
+
+    <style name="Button.Text.PrimaryColor">
+        <item name="buttonNextColor">?attr/colorPrimary</item>
+        <item name="backgroundTint">@color/white</item>
+    </style>
+
+    <style name="Button.Text.Onboarding" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="textAllCaps">true</item>
+        <item name="android:textColor">@color/onboarding_button_selector</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:padding">@dimen/margin_16dp</item>
+        <item name="autoSizeTextType">none</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:layout_marginBottom">@dimen/margin_8dp</item>
+
+    </style>
+
+    <style name="Button.Text.Onboarding.Previous">
+        <item name="android:textColor">@color/onboarding_button_previous_selector</item>
+        <item name="textAllCaps">true</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:padding">@dimen/margin_16dp</item>
+        <item name="autoSizeTextType">none</item>
+    </style>
+
+    <style name="Text">
+        <item name="android:textSize">@dimen/text_size_14sp</item>
+        <item name="android:textColor">?attr/primaryTextColor</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="Text.Simple">
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="Text.Simple.Button">
+        <item name="background">@null</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:paddingTop">@dimen/margin_4dp</item>
+        <item name="android:paddingBottom">@dimen/margin_4dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_color_primary_selector</item>
+    </style>
+
+    <style name="Text.Small">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Text.Title">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.Title.Big">
+        <item name="android:textSize">22sp</item>
+        <item name="autoSizeMaxTextSize">22sp</item>
+        <item name="autoSizeStepGranularity">2sp</item>
+        <item name="autoSizeTextType">uniform</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.Date">
+        <item name="android:textStyle">bold</item>
+        <item name="android:alpha">0.2</item>
+    </style>
+
+    <style name="Text.PollingStation">
+        <item name="android:textStyle">bold</item>
+        <item name="android:alpha">0.5</item>
+    </style>
+
+    <style name="Text.InputAppearance">
+        <item name="android:textSize">16sp</item>
+
+    </style>
+
+    <style name="Text.Option">
+        <item name="android:background">@drawable/background_input</item>
+        <item name="android:padding">@dimen/margin_16dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColorHint">@color/hint</item>
+    </style>
+
+    <style name="Text.Sync">
+        <item name="android:alpha">0.2</item>
+        <item name="android:textSize">@dimen/text_size_12sp</item>
+    </style>
+
+    <style name="Text.Label">
+        <item name="android:alpha">0.4</item>
+    </style>
+
+    <style name="Text.Label.Small">
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">@dimen/text_size_12sp</item>
+    </style>
+
+    <style name="Text.Section">
+        <item name="android:textSize">@dimen/text_size_12sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
+    <style name="Text.Section.Question">
+        <item name="android:textColor">@color/textSection</item>
+    </style>
+
+    <style name="Text.Section.Question.Title">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.Section.Question.Description">
+        <item name="textAllCaps">false</item>
+        <item name="android:lineSpacingExtra">@dimen/empty_list_description_line_spacing</item>
+    </style>
+
+    <style name="Text.Label.Medium">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">@dimen/text_size_18sp</item>
+        <item name="android:alpha">0.2</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.Label.Big">
+        <item name="android:fontFamily">sans-serif-bold</item>
+        <item name="android:textSize">@dimen/text_size_18sp</item>
+        <item name="android:alpha">0.2</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.Question">
+        <item name="android:textSize">24sp</item>
+        <item name="autoSizeTextType">uniform</item>
+        <item name="autoSizeMaxTextSize">24sp</item>
+        <item name="android:maxLines">4</item>
+        <item name="autoSizeMinTextSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-bold</item>
+        <item name="autoSizeStepGranularity">2sp</item>
+    </style>
+
+    <style name="Text.Onboarding">
+        <item name="autoSizeStepGranularity">2sp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="autoSizeTextType">uniform</item>
+        <item name="autoSizeMaxTextSize">16sp</item>
+        <item name="android:textColor">@color/onboardingDescriptionColor</item>
+    </style>
+
+    <style name="Text.Title.Onboarding">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="Text.Title.Big.Onboarding">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/onboarding_title</item>
+    </style>
+
+
+    <style name="Text.Spinner">
+        <item name="android:padding">@dimen/margin_8dp</item>
+    </style>
+
+
+    <style name="Input" parent="Widget.AppCompat.EditText">
+        <item name="android:textAppearance">@style/Text.InputAppearance</item>
+        <item name="android:inputType">textCapSentences</item>
+        <item name="android:padding">@dimen/margin_16dp</item>
+        <item name="android:background">@drawable/background_input</item>
+    </style>
+
+    <style name="TransparentBg">
+        <item name="inputBackgroundColor">@android:color/transparent</item>
+    </style>
+
+    <style name="Input.Note">
+        <item name="android:textColorHint">@color/hint</item>
+        <item name="android:inputType">textMultiLine|textCapSentences</item>
+        <item name="android:lines">8</item>
+        <item name="android:maxLines">8</item>
+        <item name="android:minLines">8</item>
+        <item name="android:gravity">top</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="android:overScrollMode">always</item>
+        <item name="android:scrollbarStyle">insideInset</item>
+    </style>
+
+    <style name="MaterialCardView" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">4dp</item>
+        <item name="cardElevation">@dimen/elevation</item>
+        <item name="cardBackgroundColor">@color/cardColor</item>
+    </style>
+
+    <style name="NavigationView" parent="Widget.Design.NavigationView">
+        <item name="itemTextAppearance">@style/NavigationMenuItem</item>
+        <item name="itemIconTint">@color/menu_selector</item>
+        <item name="itemTextColor">@color/menu_selector</item>
+        <item name="itemHorizontalPadding">@dimen/margin_32dp</item>
+        <item name="itemIconPadding">@dimen/margin_16dp</item>
+        <item name="itemPadding">@dimen/margin_16dp</item>
+        <item name="itemIconSize">@dimen/small_icon_size</item>
+        <item name="android:background">@color/menuBackground</item>
+    </style>
+
+    <style name="NavigationMenuItem" parent="Text">
+        <item name="android:background">?android:selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="RadioButton" parent="@android:style/Widget.CompoundButton.RadioButton">
+        <item name="android:background">@drawable/radio_button</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/questionbtn_text_color_selector</item>
+        <item name="android:textSize">@dimen/text_size_14sp</item>
+    </style>
+
+    <style name="CheckBox" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:background">@drawable/radio_button</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:textSize">@dimen/text_size_14sp</item>
+    </style>
+
+    <style name="TextInputLayoutLogin" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintEnabled">false</item>
+        <item name="boxStrokeColor">@color/text_input_box</item>
+        <item name="boxStrokeErrorColor">@color/errorRed</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxCornerRadiusTopStart">2dp</item>
+        <item name="boxCornerRadiusBottomEnd">2dp</item>
+        <item name="boxCornerRadiusBottomStart">2dp</item>
+        <item name="boxCornerRadiusTopEnd">2dp</item>
+        <item name="android:textColorHint">@color/textPrimary</item>
+        <item name="errorTextColor">@color/errorRed</item>
+    </style>
+
+    <style name="InputLogin" parent="Widget.AppCompat.EditText">
+        <item name="android:textColor">?attr/primaryTextColor</item>
+        <item name="android:textColorHint">@color/hint</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:padding">@dimen/margin_16dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">@dimen/text_size_16sp</item>
+    </style>
+
+    <style name="Progress" parent="Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:progressTint">@color/textAccent</item>
+        <item name="android:progressBackgroundTint">@color/incompleteForm</item>
+        <item name="android:progressDrawable">@drawable/complete_form_progress</item>
+    </style>
+
+    <!--Patient Card styles-->
+    <style name="Text.PatientName">
+        <item name="android:fontFamily">sans-serif-bold</item>
+        <item name="android:textSize">@dimen/text_size_16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="Text.PatientName.FamilyMember">
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="Text.Label.PatientInfo">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">@dimen/text_size_11sp</item>
+        <item name="textAllCaps">true</item>
+        <item name="android:textColor">@color/patientCardInfoLabels</item>
+    </style>
+
+    <style name="Text.PatientInfo">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">@dimen/text_size_15sp</item>
+    </style>
+
+    <style name="Button.Text.EditPatient">
+        <item name="android:textColor">@color/text_color_primary_selector</item>
+        <item name="backgroundTint">@color/white</item>
+    </style>
+
+    <style name="Text.Title.Form">
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/text_size_15sp</item>
+    </style>
+
+    <style name="Text.Label.Form">
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">@dimen/text_size_12sp</item>
+    </style>
+
+    <style name="LoginText">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="LoginText.Title">
+        <item name="android:textSize">@dimen/text_size_24sp</item>
+        <item name="android:lineSpacingMultiplier">@dimen/login_title_line_height</item>
+    </style>
+
+    <style name="LoginText.Subtitle">
+        <item name="android:textSize">@dimen/text_size_18sp</item>
+        <item name="android:lineSpacingMultiplier">@dimen/login_subtitle_line_height</item>
+    </style>
+
+    <style name="NavDrawerIcon">
+        <item name="tint">@color/menu_selector</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_margin">@dimen/margin_16dp</item>
+        <item name="android:layout_width">@dimen/nav_drawer_icon_size</item>
+        <item name="android:layout_height">@dimen/nav_drawer_icon_size</item>
+    </style>
+
+
+    <style name="NavDrawerText">
+        <item name="android:textColor">@color/menu_selector</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!--Empty Lists Layout styles-->
+    <style name="Text.EmptyList">
+        <item name="android:textColor">@color/empty_list_text_color</item>
+    </style>
+
+    <style name="Text.EmptyList.Title">
+        <item name="android:textSize">@dimen/text_size_18sp</item>
+    </style>
+
+    <style name="Text.EmptyList.Description">
+        <item name="android:textAlignment">center</item>
+        <item name="android:lineSpacingExtra">@dimen/empty_list_description_line_spacing</item>
+    </style>
+
+    <style name="EditText">
+        <item name="android:background">@drawable/custom_edittext</item>
+        <item name="android:paddingStart">@dimen/margin_10dp</item>
+        <item name="android:paddingEnd">@dimen/margin_10dp</item>
+        <item name="android:paddingTop">@dimen/margin_14dp</item>
+        <item name="android:paddingBottom">@dimen/margin_14dp</item>
+
+    </style>
+
+    <style name="EditText.SingleLine">
+        <item name="android:maxLines">1</item>
+        <item name="android:lines">1</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+</resources>

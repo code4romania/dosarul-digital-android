@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/margin_24dp"
+    android:paddingEnd="@dimen/margin_24dp">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailLayout"
+        style="@style/TextInputLayoutLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/textPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailEditText"
+            style="@style/InputLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="username,email"
+            android:hint="@string/send_report_dialog_hint"
+            android:inputType="textEmailAddress" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+</LinearLayout>

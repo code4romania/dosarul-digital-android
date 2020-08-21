@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="continueListener"
+            type="ro.code4.casefile.widget.spinner.ClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/changeBeneficiaryBar"
+            layout="@layout/widget_change_beneficiary_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fill_date_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_24dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:text="@string/fill_date_title"
+            android:textAppearance="@style/Text"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/changeBeneficiaryBar" />
+
+        <include
+            android:id="@+id/fillDateSpinner"
+            layout="@layout/spinner_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            app:layout_constraintTop_toBottomOf="@id/fill_date_title" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/fill_date_continue_button"
+            style="@style/BaseButton.Next"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:layout_marginBottom="@dimen/margin_24dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="@{ (v) -> continueListener.listener.invoke(v) }"
+            android:text="@string/button_continue"
+            app:iconGravity="textStart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

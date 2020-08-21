@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="formTitle"
+            type="String" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/MaterialCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/formTitle"
+            style="@style/Text.Title.Form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_selectable"
+            android:drawableEnd="@drawable/ic_form_selected"
+            android:paddingStart="@dimen/margin_16dp"
+            android:paddingTop="@dimen/margin_24dp"
+            android:paddingEnd="@dimen/margin_16dp"
+            android:paddingBottom="@dimen/margin_24dp"
+            android:text="@{formTitle}"
+            app:drawableTint="@color/ic_form_selected_tint_selector"
+            tools:text="Monitorizare sarcina - Trimestrul I (S1)" />
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

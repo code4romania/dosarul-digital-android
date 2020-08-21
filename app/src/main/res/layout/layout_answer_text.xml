@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="answerText"
+            type="String" />
+    </data>
+
+    <EditText
+        android:id="@+id/answerInput"
+        style="@style/Input.Note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/question_text_hint"
+        android:importantForAutofill="no"
+        android:padding="@dimen/margin_12dp"
+        android:text="@{answerText}" />
+    <!--TODO Double check the hint. Not specified in design.-->
+</layout>

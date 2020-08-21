@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="spinnerUiModel"
+            type="ro.code4.casefile.widget.spinner.SpinnerUiModel" />
+
+        <variable
+            name="spinnerListeners"
+            type="ro.code4.casefile.widget.spinner.ClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dropdown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:background="@drawable/dropdown_background"
+        android:onClick="@{ (v) -> spinnerListeners.listener.invoke(v) }"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fill_date_title"
+        tools:showIn="@layout/fragment_fill_date">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_spinner_arrow_down"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text"
+            style="@style/Text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_16dp"
+            android:hint="@{ spinnerUiModel.spinnerHint }"
+            android:text="@{ spinnerUiModel.spinnerText }"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="21.09.1989" />
+
+        <ro.code4.casefile.widget.spinner.SameSelectionAllowedSpinner
+            android:id="@+id/spinner"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@null"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

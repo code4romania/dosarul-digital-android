@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="name"
+            type="String" />
+        <variable
+            name="addPatientUiModel"
+            type="ro.code4.casefile.ui.patient.model.AddPatientUiModel" />
+
+        <variable
+            name="addPatientListeners"
+            type="ro.code4.casefile.ui.patient.model.AddPatientListeners" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.patient.addpatient.AddPatientFragment">
+
+        <include
+            android:id="@+id/patientTop"
+            layout="@layout/widget_change_beneficiary_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/continueButton"
+            app:layout_constraintTop_toBottomOf="@id/patientTop">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/margin_24dp"
+                android:paddingStart="@dimen/margin_16dp"
+                android:paddingEnd="@dimen/margin_16dp">
+
+                <TextView
+                    style="@style/Text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:text="@string/name_and_surname" />
+
+                <EditText
+                    android:id="@+id/nameEdit"
+                    style="@style/EditText.SingleLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:hint="@string/name_and_surname_hint"
+                    android:text="@{name}" />
+
+                <TextView
+                    style="@style/Text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:text="@string/date_of_birth" />
+
+                <include
+                    android:id="@+id/dateOfBirth"
+                    layout="@layout/spinner_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    app:spinnerListeners="@{addPatientListeners.dateOfBirthListener}"
+                    app:spinnerUiModel="@{addPatientUiModel.dateOfBirthUiModel}" />
+
+                <TextView
+                    style="@style/Text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:text="@string/marital_status" />
+
+                <include
+                    android:id="@+id/maritalStatus"
+                    layout="@layout/spinner_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    app:spinnerListeners="@{addPatientListeners.maritalStatusListener}"
+                    app:spinnerUiModel="@{addPatientUiModel.maritalStatusUiModel}" />
+
+                <TextView
+                    style="@style/Text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:text="@string/county" />
+
+                <include
+                    android:id="@+id/county"
+                    layout="@layout/spinner_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    app:spinnerListeners="@{addPatientListeners.countyListener}"
+                    app:spinnerUiModel="@{addPatientUiModel.countyUiModel}" />
+
+                <TextView
+                    style="@style/Text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:text="@string/city" />
+
+                <include
+                    android:id="@+id/city"
+                    layout="@layout/spinner_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    app:spinnerListeners="@{addPatientListeners.cityListener}"
+                    app:spinnerUiModel="@{addPatientUiModel.cityUiModel}" />
+
+                <TextView
+                    style="@style/Text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:text="@string/gender" />
+
+                <include
+                    android:id="@+id/gender"
+                    layout="@layout/spinner_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    app:spinnerListeners="@{addPatientListeners.genderListener}"
+                    app:spinnerUiModel="@{addPatientUiModel.genderUiModel}" />
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/continueButton"
+            style="@style/BaseButton.Next"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:layout_marginBottom="@dimen/margin_24dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="@{() -> addPatientListeners.savePatientListener.listener.invoke()}"
+            android:text="@string/button_continue"
+            app:iconGravity="textStart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

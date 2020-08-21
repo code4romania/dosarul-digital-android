@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:paddingBottom="@dimen/margin_16dp">
+
+        <include
+            android:id="@+id/changeBeneficiaryBar"
+            layout="@layout/widget_change_beneficiary_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/questionsList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/margin_16dp"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:paddingStart="@dimen/margin_16dp"
+            android:paddingTop="@dimen/margin_16dp"
+            android:paddingEnd="@dimen/margin_16dp"
+            app:layout_constraintBottom_toTopOf="@id/nextQuestionBtn"
+            app:layout_constraintTop_toBottomOf="@id/changeBeneficiaryBar"
+            tools:listitem="@layout/item_question_details" />
+
+        <Button
+            android:id="@+id/previousQuestionBtn"
+            style="@style/BaseButton.Previous"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_8dp"
+            android:layout_marginEnd="@dimen/margin_8dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:paddingStart="@dimen/margin_16dp"
+            android:paddingEnd="@dimen/margin_16dp"
+            android:text="@string/question_previous"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/nextQuestionBtn"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/nextQuestionBtn"
+            style="@style/BaseButton.Next"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/question_next"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/previousQuestionBtn" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

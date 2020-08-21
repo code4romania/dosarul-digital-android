@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="?attr/buttonPreviousColorTapped" android:state_focused="true" />
+    <item android:color="?attr/buttonPreviousColorTapped" android:state_hovered="true" />
+    <item android:color="?attr/buttonPreviousColorTapped" android:state_pressed="true" />
+    <item android:color="?attr/buttonPreviousColorTapped" android:state_selected="true" />
+    <item android:alpha="0.90" android:color="?attr/buttonPreviousColor" android:state_enabled="false" />
+    <item android:color="?attr/buttonPreviousColor" />
+</selector>

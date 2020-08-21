@@ -1,0 +1,39 @@
+<layout>
+
+    <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <include
+                android:id="@+id/changeBeneficiaryBar"
+                layout="@layout/widget_change_beneficiary_bar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/formsList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                android:paddingStart="@dimen/margin_16dp"
+                android:paddingTop="@dimen/margin_24dp"
+                android:paddingEnd="@dimen/margin_16dp"
+                android:paddingBottom="@dimen/margin_24dp"
+                android:scrollbars="none"
+                app:layout_constraintTop_toBottomOf="@id/changeBeneficiaryBar"
+                tools:itemCount="7"
+                tools:listitem="@layout/item_form_patient" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

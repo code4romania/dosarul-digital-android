@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="noteUiModel"
+            type="ro.code4.casefile.ui.patient.model.NoteUiModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/MaterialCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_16dp">
+
+            <TextView
+                android:id="@+id/familyMemberName"
+                style="@style/Text.Title.Form"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_16dp"
+                android:layout_marginEnd="@dimen/margin_16dp"
+                android:text="@{noteUiModel.name}"
+                app:layout_constraintBottom_toTopOf="@+id/familyMemberRelation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="Monitorizare sarcina - trimestrul I" />
+
+            <TextView
+                android:id="@+id/familyMemberRelation"
+                style="@style/Text.Date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_16dp"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:text="@{noteUiModel.date}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/familyMemberName"
+                tools:text="14.07.2019" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

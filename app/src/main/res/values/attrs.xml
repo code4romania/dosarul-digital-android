@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="primaryTextColor" format="reference" />
+    <attr name="buttonNextColor" format="reference" />
+    <attr name="buttonNextColorTapped" format="reference" />
+    <attr name="buttonPreviousColor" format="reference" />
+    <attr name="buttonPreviousColorTapped" format="reference" />
+    <attr name="inputBackgroundColor" format="reference" />
+</resources>

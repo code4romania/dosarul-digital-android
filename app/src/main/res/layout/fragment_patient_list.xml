@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="listeners"
+            type="ro.code4.casefile.ui.section.selection.PatientSelectListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/empty_list_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/add_patient_button"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/sadCloudNoItems"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_sadcloud"
+                app:layout_constraintBottom_toTopOf="@id/empty_list_message"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/empty_list_message"
+                style="@style/Text.EmptyList.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_32dp"
+                android:text="@string/empty_patient_list"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sadCloudNoItems" />
+
+            <TextView
+                android:id="@+id/empty_list_message_instructions"
+                style="@style/Text.EmptyList.Description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_48dp"
+                android:layout_marginTop="@dimen/margin_12dp"
+                android:layout_marginEnd="@dimen/margin_48dp"
+                android:layout_marginBottom="@dimen/margin_8dp"
+                android:text="@string/add_new_patient_instruction"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/empty_list_message" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/patient_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:paddingBottom="@dimen/margin_86dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_patient" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/add_patient_button"
+            style="@style/BaseButton.Next"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:layout_marginBottom="@dimen/margin_24dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="@{ () -> listeners.addPatient.invoke() }"
+            android:text="@string/add_patient_button_text"
+            app:icon="@drawable/ic_add_patient"
+            app:iconGravity="textStart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
