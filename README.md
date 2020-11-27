@@ -8,9 +8,11 @@
 
 ## Contributing
 
-This project is built by amazing volunteers and you can be one of them! Here's a list of ways in [which you can contribute to this project](.github/CONTRIBUTING.MD).
+This project is built by amazing volunteers and you can be one of them! Here's a list of ways in [which you can contribute to this project](https://github.com/code4romania/.github/blob/master/CONTRIBUTING.md). If you want to make any change to this repository, please **make a fork first**.
 
-__IMPORTANT:__ Please follow the Code4Romania [WORKFLOW](.github/WORKFLOW.MD)
+If you would like to suggest new functionality, open an Issue and mark it as a __[Feature request]__. Please be specific about why you think this functionality will be of use. If you can, please include some visual description of what you would like the UI to look like, if you are suggesting new UI elements.
+
+Also, this is [the workflow we follow](https://github.com/code4romania/.github/blob/master/WORKFLOW.md).
 
 ## Built With
 
@@ -29,8 +31,6 @@ Uses the MVVM architectural pattern.
 Relies on Firebase's RemoteConfig for remote settings.
 
 ## Repos and projects
-
-![alt text](https://raw.githubusercontent.com/code4romania/mon-vot-android-kotlin/develop/vote_monitor_diagram.png)
 
 - repo for the API - https://github.com/code4romania/case-file-api
 - repo for the iOS app - https://github.com/code4romania/case-file-ios
