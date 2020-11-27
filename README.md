@@ -1,16 +1,8 @@
-# Monitorizare Vot - Android Kotlin 
+# Case file - Android Kotlin 
 
-[![GitHub contributors](https://img.shields.io/github/contributors/code4romania/mon-vot-android-kotlin.svg?style=for-the-badge)](https://github.com/code4romania/mon-vot-android-kotlin/graphs/contributors) [![GitHub last commit](https://img.shields.io/github/last-commit/code4romania/mon-vot-android-kotlin.svg?style=for-the-badge)](https://github.com/code4romania/mon-vot-android-kotlin/commits/master) [![License: MPL 2.0](https://img.shields.io/badge/license-MPL%202.0-brightgreen.svg?style=for-the-badge)](https://opensource.org/licenses/MPL-2.0)
+[![GitHub contributors](https://img.shields.io/github/contributors/code4romania/case-file-android.svg?style=for-the-badge)](https://github.com/code4romania/case-file-android/graphs/contributors) [![GitHub last commit](https://img.shields.io/github/last-commit/code4romania/case-file-android.svg?style=for-the-badge)](https://github.com/code4romania/case-file-android/commits/master) [![License: MPL 2.0](https://img.shields.io/badge/license-MPL%202.0-brightgreen.svg?style=for-the-badge)](https://opensource.org/licenses/MPL-2.0)
 
-[See the project live](https://votemonitor.org/)
-
-Monitorizare Vot is a mobile app for monitoring elections by authorized observers. They can use the app in order to offer a real-time snapshot on what is going on at polling stations and they can report on any noticeable irregularities. 
-
-The NGO-s with authorized observers for monitoring elections have real time access to the data the observers are transmitting therefore they can report on how voting is evolving and they can quickly signal to the authorities where issues need to be solved. 
-
-Moreover, where it is allowed, observers can also photograph and film specific situations and send the images to the NGO they belong to. 
-
-The app also has a web version, available for every citizen who wants to report on election irregularities. Monitorizare Vot was launched in 2016 and it has been used for the Romanian parliamentary elections so far, but it is available for further use, regardless of the type of elections or voting process. 
+ 
 
 [Contributing](#contributing) | [Built with](#built-with) | [Repos and projects](#repos-and-projects) | [Feedback](#feedback) | [License](#license) | [About Code4Ro](#about-code4ro)
 
@@ -36,21 +28,15 @@ Uses the MVVM architectural pattern.
 
 Relies on Firebase's RemoteConfig for remote settings.
 
-The app is localized, meaning it's easier for any interested party to fork the project and use it in other countries, simply localizing the messages. Please see the [steps for app localization](https://github.com/code4romania/mon-vot-android-kotlin/wiki/Steps-for-app-localisation) in the wiki.
-
-More info on redeploying and reusing the app can be found in the wiki: [Redeploy steps](https://github.com/code4romania/mon-vot-android-kotlin/wiki/Steps-for-redeploying---reusing-the-app) & [Google Play Deploy Steps](https://github.com/code4romania/mon-vot-android-kotlin/wiki/Google-Play-Deploy-Steps)
-
-Swagger docs for the API are available [here](http://mv-mobile-test.azurewebsites.net/swagger/index.html).
-
 ## Repos and projects
 
 ![alt text](https://raw.githubusercontent.com/code4romania/mon-vot-android-kotlin/develop/vote_monitor_diagram.png)
 
-- repo for the API - https://github.com/code4romania/monitorizare-vot
-- repo for the iOS app - https://github.com/code4romania/monitorizare-vot-ios
+- repo for the API - https://github.com/code4romania/case-file-api
+- repo for the iOS app - https://github.com/code4romania/case-file-ios
 
 Other related projects:
-- https://github.com/code4romania/monitorizare-vot-ong
+- https://github.com/code4romania/case-file-web
 
 ## Feedback
 
